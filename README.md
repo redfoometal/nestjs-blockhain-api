@@ -60,16 +60,24 @@ $ npm run test:cov
 
 ## Deployment
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+To deploy your NestJS application, you need to ensure that Docker is installed on your machine. Follow these steps to deploy your application:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+1. Make sure the `NODE_ENV` variable is set to `production` in your `.env` file:
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+    ```env
+    NODE_ENV=production
+    ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+2. Run the following script to start the containers:
+
+    ```bash
+    bash start-containers.sh
+    ```
+
+This will set up the necessary containers for your application, including the database and the API, in production mode. Once the containers are up, your application will be deployed and ready for production use.
+
+Make sure Docker and Docker Compose are properly configured before running the script.
+
 
 ## Resources
 
