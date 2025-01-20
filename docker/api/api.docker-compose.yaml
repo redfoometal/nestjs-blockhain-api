@@ -1,0 +1,18 @@
+services:
+  api:
+    container_name: api_container
+    build:
+      context: ../../
+      dockerfile: docker/api/api.Dockerfile
+      target: ${NODE_ENV}
+    env_file: "../../.env"
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "4000:4000"
+    volumes:
+      - ../../src:/usr/src/app/src
+      - /usr/src/app/node_modules
